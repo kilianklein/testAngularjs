@@ -1,0 +1,15 @@
+<section ng-controller="RepositorySearchCtrl as repositorySearchCtrl">
+    <header>
+        <h2>Explore the repositories!</h2>
+    </header>
+
+    <form>
+        <input required type="text" ng-model="searchInput"><button ng-click="repositorySearchCtrl.updateRepositoryList(searchInput)">Search</button>
+    </form>
+
+    <div ng-show="repositoryList.length">
+        <h2>{{ repositoryList.length }} Result(s) for the repository search with keyword: "{{ searchInput }}"</h2>
+
+        <repository ng-repeat="repository in repositoryList" repository="repository"></repository>
+    </div>
+</section>

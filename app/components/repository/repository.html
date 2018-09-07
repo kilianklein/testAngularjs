@@ -1,0 +1,11 @@
+<div>
+    <h3>{{ $ctrl.repository.full_name }} <small>[ {{ $ctrl.repository.id }} ]</small></h3>
+    <dl>
+        <dt>Url</dt><dd><a href="{{ $ctrl.repository.url }}">{{ $ctrl.repository.full_name }}</a></dd>
+        <dt>Description</dt><dd>{{ $ctrl.repository.description }}</dd>
+        <dt># Forks</dt><dd>{{ $ctrl.repository.forks_count }}</dd>
+        <dt># Stargazers</dt><dd>{{ $ctrl.repository.stargazers_count }}</dd>
+        <dt># Open issues</dt><dd>{{ $ctrl.repository.open_issues }}</dd>
+        <dt># Watchers</dt><dd>{{ $ctrl.repository.watchers_count }}</dd>
+    </dl>
+</div>
