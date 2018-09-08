@@ -1,0 +1,10 @@
+<div>
+    <h3>{{ $ctrl.issue.title }} <small>[{{ $ctrl.issue.id }}]</small></h3>
+    <dl>
+        <dt>Url</dt><dd>{{ $ctrl.issue.url }}</dd>
+        <dt>State</dt><dd>{{ $ctrl.issue.state }}</dd>
+        <dt>Locked</dt><dd><span ng-show="$ctrl.issue.locked">locked</span></dd>
+        <dt>Author</dt><dd>{{ $ctrl.issue.user.login }}</dd>
+        <dt># Comments</dt><dd>{{ $ctrl.issue.comments }}</dd>
+    </dl>
+</div>
