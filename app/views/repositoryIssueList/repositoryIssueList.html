@@ -1,12 +1,8 @@
 <section ng-controller="RepositoryIssueListCtrl as repositoryIssueListCtrl">
-    <form>
-        <input type="text" ng-model="searchIssueInput"><button ng-click="repositoryIssueListCtrl.updateRepositoryIssueList(searchIssueInput)">Search</button>
-    </form>
-
-    <div ng-show="issueList.length">
+    <div ng-show="repositoryIssueListCtrl.issueList.length">
         <header>
-            <h2>Found {{ issueList.length }} issue(s) for the repository "{{ repositoryFullName }}"</h2>
+            <h2>Found {{ repositoryIssueListCtrl.issueList.length }} issue(s) for the repository "{{ repositoryIssueListCtrl.repositoryFullName }}"</h2>
         </header>
-        <repository-issue ng-repeat="issue in issueList" issue="issue"></repository-issue>
+        <repository-issue ng-repeat="issue in repositoryIssueListCtrl.issueList" issue="issue"></repository-issue>
     </div>
 </section>

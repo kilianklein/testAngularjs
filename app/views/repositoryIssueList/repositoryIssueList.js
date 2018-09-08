@@ -8,17 +8,20 @@ angular.module('gitRepositoryListing.repositoryIssueListView', ['ngRoute'])
         });
     }])
     .controller('RepositoryIssueListCtrl', ['$scope', '$http', function($scope, $http){
-        this.updateRepositoryIssueList = function(repositoryFullName){
-            $scope.repositoryFullName = repositoryFullName;
+        var ctrl = this;
+        $scope.$watch('mainCtrl.selectedRepository.full_name', function(repositoryFullName) {
+            if(repositoryFullName !== undefined){
+                ctrl.repositoryFullName = repositoryFullName;
 
-            $http({
-                method: 'GET',
-                url: baseGitRepositoryIssueListUrl + repositoryFullName
-            }).then(function successCallback(response) {
-                $scope.issueList = response.data.items;
-            }, function errorCallback(response) {
-                alert(response.data.message);
-            });
-        }
+                $http({
+                    method: 'GET',
+                    url: baseGitRepositoryIssueListUrl + repositoryFullName
+                }).then(function successCallback(response) {
+                    ctrl.issueList = response.data.items;
+                }, function errorCallback(response) {
+                    alert(response.data.message);
+                });
+            }
+        });
     }])
 ;

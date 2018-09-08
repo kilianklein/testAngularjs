@@ -8,13 +8,14 @@ angular.module('gitRepositoryListing.repositorySearchView', ['ngRoute'])
         });
     }])
     .controller('RepositorySearchCtrl', ['$scope', '$http', function($scope, $http){
+        var ctrl = this;
         this.updateRepositoryList = function(searchInput){
             if(searchInput !== undefined){
                 $http({
                     method: 'GET',
                     url: baseGitRepositorySearchUrl + searchInput
                 }).then(function successCallback(response) {
-                    $scope.repositoryList = response.data.items;
+                    ctrl.repositoryList = response.data.items;
                 }, function errorCallback(response) {
                     alert(response.data.message);//TODO render with style
                 });

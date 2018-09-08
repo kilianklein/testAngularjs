@@ -8,4 +8,6 @@
         <dt># Open issues</dt><dd>{{ $ctrl.repository.open_issues }}</dd>
         <dt># Watchers</dt><dd>{{ $ctrl.repository.watchers_count }}</dd>
     </dl>
+    <a ng-click="$ctrl.viewIssuesClick()" ng-href="#!/repositoryIssueList">View issues</a>
+
 </div>

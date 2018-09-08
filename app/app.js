@@ -8,5 +8,13 @@
             $locationProvider.hashPrefix('!');
             $routeProvider.otherwise({redirectTo: '/repositorySearch'});
         }])
+        .controller("MainCtrl", [function(){
+            var ctrl = this;
+            this.selectedRepository = null;
+
+            this.setSelectedRepository = function(repository){
+                ctrl.selectedRepository = repository;
+            }
+        }])
     ;
 })();
