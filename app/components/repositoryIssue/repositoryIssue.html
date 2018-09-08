@@ -1,10 +1,16 @@
-<div>
-    <h3>{{ $ctrl.issue.title }} <small>[{{ $ctrl.issue.id }}]</small></h3>
-    <dl>
-        <dt>Url</dt><dd>{{ $ctrl.issue.url }}</dd>
-        <dt>State</dt><dd>{{ $ctrl.issue.state }}</dd>
-        <dt>Locked</dt><dd><span ng-show="$ctrl.issue.locked">locked</span></dd>
-        <dt>Author</dt><dd>{{ $ctrl.issue.user.login }}</dd>
-        <dt># Comments</dt><dd>{{ $ctrl.issue.comments }}</dd>
-    </dl>
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <h5 class="card-header">
+                <a href="{{ $ctrl.issue.url }}">#{{ $ctrl.issue.id }}</a>
+                <span class="badge" ng-class="{'badge-info': $ctrl.issue.state == 'open', 'badge-danger': $ctrl.issue.state == 'closed'}">{{ $ctrl.issue.state }}</span>
+                <span class="badge badge-warning" ng-show="$ctrl.issue.locked">locked</span>
+            </h5>
+            <div class="card-body">
+                <h5 class="card-title">{{ $ctrl.issue.title }} <small>by <a href="{{ $ctrl.issue.user.url }}">{{ $ctrl.issue.user.login }}</a></small></h5>
+                <p class="card-text">{{ $ctrl.issue.body }}</p>
+                <span class="badge badge-info">{{ $ctrl.issue.comments }}</span> Comment(s)
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,8 +1,10 @@
 <section ng-controller="RepositoryIssueListCtrl as repositoryIssueListCtrl">
-    <div ng-show="repositoryIssueListCtrl.issueList.length">
-        <header>
-            <h2>Found {{ repositoryIssueListCtrl.issueList.length }} issue(s) for the repository "{{ repositoryIssueListCtrl.repositoryFullName }}"</h2>
-        </header>
+    <p class="alert alert-warning" ng-hide="repositoryIssueListCtrl.issueList.length">
+        Please select a repository in the "Repository view" first (by clicking the chosen repository's "View issues" button).
+    </p>
+    <div class="search-results" ng-show="repositoryIssueListCtrl.issueList.length">
+        <p>Found <strong>{{ repositoryIssueListCtrl.issueList.length }}</strong> issue(s) for the repository "{{ repositoryIssueListCtrl.repositoryFullName }}"</p>
+
         <repository-issue ng-repeat="issue in repositoryIssueListCtrl.issueList" issue="issue"></repository-issue>
     </div>
 </section>

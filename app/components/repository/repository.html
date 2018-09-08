@@ -1,13 +1,20 @@
-<div>
-    <h3>{{ $ctrl.repository.full_name }} <small>[ {{ $ctrl.repository.id }} ]</small></h3>
-    <dl>
-        <dt>Url</dt><dd><a href="{{ $ctrl.repository.url }}">{{ $ctrl.repository.full_name }}</a></dd>
-        <dt>Description</dt><dd>{{ $ctrl.repository.description }}</dd>
-        <dt># Forks</dt><dd>{{ $ctrl.repository.forks_count }}</dd>
-        <dt># Stargazers</dt><dd>{{ $ctrl.repository.stargazers_count }}</dd>
-        <dt># Open issues</dt><dd>{{ $ctrl.repository.open_issues }}</dd>
-        <dt># Watchers</dt><dd>{{ $ctrl.repository.watchers_count }}</dd>
-    </dl>
-    <a ng-click="$ctrl.viewIssuesClick()" ng-href="#!/repositoryIssueList">View issues</a>
-
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <h5 class="card-header">
+                <a href="{{ $ctrl.repository.url }}">{{ $ctrl.repository.name }} <small>[ {{ $ctrl.repository.id }} ]</small></a>
+            </h5>
+            <div class="card-body">
+                <h5 class="card-title">{{ $ctrl.repository.full_name }} <small>by <a href="{{ $ctrl.repository.owner.url }}">{{ $ctrl.repository.owner.login }}</a></small></h5>
+                <p class="card-text">{{ $ctrl.repository.description }}</p>
+            </div>
+            <div class="card-footer text-muted">
+                <span class="badge badge-info">{{ $ctrl.repository.forks_count }}</span> Badge(s)
+                <span class="badge badge-info">{{ $ctrl.repository.stargazers_count }}</span> Stargazer(s)
+                <span class="badge badge-info">{{ $ctrl.repository.open_issues }}</span> Open issue(s)
+                <span class="badge badge-info">{{ $ctrl.repository.watchers_count }}</span> Watcher(s)
+                <a class="btn btn-outline-info" ng-click="$ctrl.viewIssuesClick()" ng-href="#!/repositoryIssueList">View issues</a>
+            </div>
+        </div>
+    </div>
 </div>

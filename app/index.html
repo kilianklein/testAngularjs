@@ -10,14 +10,17 @@
       <link rel="stylesheet" href="app.css">
     </head>
     <body ng-controller="MainCtrl as mainCtrl">
-        <h1>Kilian Klein's solution to your AngularJS test</h1>
+        <div class="container-fluid">
+            <h1>Kilian Klein's solution to your AngularJS test</h1>
 
-        <nav>
-            <a href="#!/repositorySearch">Repository view</a>
-            <a href="#!/repositoryIssueList">Issue view</a>
-        </nav>
+            <nav>
+                Quick links:
+                <a class="btn btn-outline-primary" href="#!/repositorySearch">Repository view</a>
+                <a class="btn btn-outline-primary" href="#!/repositoryIssueList">Issue view</a>
+            </nav>
 
-        <div ng-view></div>
+            <div ng-view></div>
+        </div>
 
         <script src="libs/js/angular.min.js"></script>
         <script src="libs/js/angular-route.min.js"></script>
